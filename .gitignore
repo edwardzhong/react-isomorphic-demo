@@ -10,7 +10,7 @@ app/bower_components
 .editorconfig
 .babelrc
 npm-debug.log
-build/
+build/*
 .idea/
 coverage
 jest_0
