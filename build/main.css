@@ -76,6 +76,9 @@ a {
   height: 5.4rem;
   margin-bottom: 0.1rem;
 }
+.sort-list .list-item:hover {
+  opacity: 0.5;
+}
 .sort-list .list-item img {
   width: 3.05rem;
   height: 4.5rem;
