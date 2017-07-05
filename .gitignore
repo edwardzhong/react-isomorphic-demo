@@ -8,7 +8,6 @@ app/bower_components
 .jshintrc
 .gitattributes
 .editorconfig
-.babelrc
 npm-debug.log
 .idea/
 coverage
