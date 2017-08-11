@@ -29,7 +29,12 @@ module.exports = {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
                   fallback: 'style-loader',
-                  use: ['css-loader','postcss-loader','less-loader']
+                  use: [{
+                    loader: 'css-loader',
+                      options: {
+                        minimize: true
+                      }
+                    },'postcss-loader','less-loader']
               })
             },
             {
@@ -41,7 +46,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),//为组件分配ID,通过这个插件webpack可以分析和优先考虑使用最多的模块,并为它们分配最小的ID 
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'develop')
         }),
         new CleanWebpackPlugin(
             ['build/*.bundle.*.js','build/*.bundle.*.js.map',],　 //匹配删除的文件
@@ -68,7 +73,7 @@ module.exports = {
             sourceMap: true
         }),
         new ExtractTextPlugin({ 
-            filename: 'main.css'
+            filename: 'main.[hash].css'
         }),
         new HtmlWebpackPlugin({
             filename:'list.html',
